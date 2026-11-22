@@ -53,7 +53,8 @@ Metrics: Accuracy, AUC, Precision, Recall, F1 Score, Matthews Correlation Coeffi
 | Naive Bayes | 0.6955 | 0.8075 | 0.4597 | 0.8396 | 0.5941 | 0.4268 |
 | Random Forest | 0.7828 | 0.8196 | 0.6164 | 0.4813 | 0.5405 | 0.4064 |
 
-![Metric comparison](comparison_chart.png)
+![Metric comparison](comparison_chart1.png)
+![Metric comparison](comparison_chart2.png)
 
 ## 7. Observations
 1. Logistic Regression: Best overall, with the highest accuracy (0.8055), AUC (0.8420), precision (0.6572), F1-score (0.6040), and MCC (0.4790). Its simple linear model may suit features such as contract type and tenure.
