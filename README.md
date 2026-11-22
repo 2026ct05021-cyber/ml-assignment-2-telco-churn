@@ -57,12 +57,17 @@ Metrics: Accuracy, AUC, Precision, Recall, F1 Score, Matthews Correlation Coeffi
 ![Metric comparison](comparison_chart2.png)
 
 ## 7. Observations
-1. Logistic Regression: Best overall, with the highest accuracy (0.8055), AUC (0.8420), precision (0.6572), F1-score (0.6040), and MCC (0.4790). Its simple linear model may suit features such as contract type and tenure.
-2. Decision Tree: Weakest overall, with the lowest AUC (0.6415) and the lowest recall, F1-score, and MCC (0.2818). This may indicate overfitting.
-3. KNN: Middle of the pack, with an AUC of 0.7882. One-hot encoded features may dilute distances between observations.
-4. Naive Bayes: Highest recall (0.8396), but lowest accuracy (0.6955) and precision (0.4597). It flags more customers as churners, which may be useful when missing a potential churner is costly.
-5. Random Forest: Second-highest AUC (0.8196) and good precision (0.6164), but lower recall (0.4813).
-6. Overall: Accuracy alone may be misleading with 26.5% churn. Logistic Regression is the most balanced model, while Naive Bayes may be preferable when recall is the priority.
+1. Best overall model: Logistic Regression performed best across most measures. It had the highest accuracy (0.8055), AUC (0.8420), precision (0.6572), F1-score (0.6040), and MCC (0.4790). Overall, it offered the strongest balance.
+
+2. Highest recall: Naive Bayes found the largest share of customers who actually churned, with a recall of 0.8396. Its accuracy and precision were lower, though, so it also flagged more customers who would not churn.
+
+3. Weakest model: The Decision Tree had the lowest AUC (0.6415) and MCC (0.2818), along with a low F1-score (0.4742). This suggests it had more difficulty separating customers who churn from those who stay.
+
+4. Random Forest and KNN: Random Forest had the second-highest accuracy (0.7828) and AUC (0.8196), but its recall was low (0.4813). KNN’s results were more middle of the range, with 0.7573 accuracy and a 0.5476 F1-score.
+
+5. Effect of class imbalance: Since only about 26.5% of customers churn, accuracy does not tell the whole story. A model can be accurate overall yet still miss many churners. AUC, F1-score, and MCC help give a fuller picture.
+
+Conclusion: Logistic Regression is the strongest choice when balanced performance matters most. If the priority is to identify as many potential churners as possible, Naive Bayes may be more suitable, despite producing more false alarms.
 
 ## 8. How to Run
 1. Clone the repository and open the folder.
@@ -71,12 +76,14 @@ Metrics: Accuracy, AUC, Precision, Recall, F1 Score, Matthews Correlation Coeffi
    The dataset is in `data/telco_churn.csv`; the held-out test set is `test_data.csv`.
 
 ## 9. Repository Structure
-- `data/telco_churn.csv` – dataset
-- `ML_Assignment2.ipynb` – notebook (preprocessing, five models, metrics, charts)
-- `test_data.csv` – held-out test set used for evaluation
-- `comparison_chart.png` – metric comparison chart
-- `requirements.txt` – package versions
-- `README.md` – this file
 
-## 10. Dataset Reference
+- `data/telco_churn.csv` - dataset (7,043 rows, 21 columns)
+- `ML_Assignment2.ipynb` - complete notebook: preprocessing, 5 models, metrics, charts
+- `test_data.csv` - held-out test set (1,409 rows, 20 columns) used for evaluation
+- `comparison_chart.png` - model comparison chart
+- `requirements.txt` - package versions
+- `README.md` - this file
+
+## 10. Acknowledgements and Dataset Source
+
 IBM Telco Customer Churn sample dataset, available on Kaggle.
