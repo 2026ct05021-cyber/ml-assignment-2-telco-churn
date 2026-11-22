@@ -56,15 +56,12 @@ Metrics: Accuracy, AUC, Precision, Recall, F1 Score, Matthews Correlation Coeffi
 ![Metric comparison](comparison_chart.png)
 
 ## 7. Observations
-- **Logistic Regression:** [your words – best on accuracy, AUC, precision, F1 and MCC; a
-  simple linear model suits features like contract type and tenure.]
-- **Decision Tree:** [weakest overall – AUC 0.6415, MCC 0.2818; likely overfits.]
-- **KNN:** [middle of the pack – AUC 0.7882; one-hot features dilute distances.]
-- **Naive Bayes:** [highest recall 0.8396 but lowest accuracy 0.6955 and precision 0.4597 –
-  it flags many customers as churners; useful if missing a churner costs more.]
-- **Random Forest:** [second-best AUC 0.8196 and good precision 0.6164, but recall only 0.4813.]
-- **Overall:** [accuracy alone would be misleading with 26.5% churn; Logistic Regression is the
-  best balanced model; Naive Bayes is preferable if recall is the priority.]
+1. Logistic Regression: Best overall, with the highest accuracy (0.8055), AUC (0.8420), precision (0.6572), F1-score (0.6040), and MCC (0.4790). Its simple linear model may suit features such as contract type and tenure.
+2. Decision Tree: Weakest overall, with the lowest AUC (0.6415) and the lowest recall, F1-score, and MCC (0.2818). This may indicate overfitting.
+3. KNN: Middle of the pack, with an AUC of 0.7882. One-hot encoded features may dilute distances between observations.
+4. Naive Bayes: Highest recall (0.8396), but lowest accuracy (0.6955) and precision (0.4597). It flags more customers as churners, which may be useful when missing a potential churner is costly.
+5. Random Forest: Second-highest AUC (0.8196) and good precision (0.6164), but lower recall (0.4813).
+6. Overall: Accuracy alone may be misleading with 26.5% churn. Logistic Regression is the most balanced model, while Naive Bayes may be preferable when recall is the priority.
 
 ## 8. How to Run
 1. Clone the repository and open the folder.
@@ -73,3 +70,12 @@ Metrics: Accuracy, AUC, Precision, Recall, F1 Score, Matthews Correlation Coeffi
    The dataset is in `data/telco_churn.csv`; the held-out test set is `test_data.csv`.
 
 ## 9. Repository Structure
+- `data/telco_churn.csv` – dataset
+- `ML_Assignment2.ipynb` – notebook (preprocessing, five models, metrics, charts)
+- `test_data.csv` – held-out test set used for evaluation
+- `comparison_chart.png` – metric comparison chart
+- `requirements.txt` – package versions
+- `README.md` – this file
+
+## 10. Dataset Reference
+IBM Telco Customer Churn sample dataset, available on Kaggle.
